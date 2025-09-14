@@ -6,11 +6,11 @@
 
 <link rel='canonical' href='http://localhost:1313/page/'>
 
-<link rel="stylesheet" href="/scss/style.min.c33223b38327d4d1c12bff7d536a24556f9c252cb29d00005960c1a008af6db5.css"><meta property='og:title' content="Pages">
+<link rel="stylesheet" href="/scss/style.min.c212a5d9fa9ea40c4eab80055c536a9a3e50a1a639dded05218e10db8b1bc18c.css"><meta property='og:title' content="Pages">
 <meta property='og:description' content="欢迎来到我的网站，此博客由Hugo来进行搭建，主要分享个人生活和学习笔记">
 <meta property='og:url' content='http://localhost:1313/page/'>
 <meta property='og:site_name' content='夜影琴'>
-<meta property='og:type' content='website'><meta property='og:updated_time' content=' 2025-06-20T21:35:09&#43;08:00 '/>
+<meta property='og:type' content='website'><meta property='og:updated_time' content=' 2025-09-14T16:01:26&#43;08:00 '/>
 <meta name="twitter:title" content="Pages">
 <meta name="twitter:description" content="欢迎来到我的网站，此博客由Hugo来进行搭建，主要分享个人生活和学习笔记"><link rel="alternate" type="application/rss&#43;xml" href="http://localhost:1313/page/index.xml">
     <link rel="shortcut icon" href="/favicon.ico" />
@@ -246,7 +246,7 @@
                     <a href="/archives/#2025">
                         
                             <span class="year">2025</span>
-                            <span class="count">3</span>
+                            <span class="count">5</span>
                         
                     </a> 
                 </div>
@@ -401,6 +401,8 @@
 </script>
 <script src="/background/sakura.js"></script>
 
+
+
   
 <style>
     #TableOfContents > ul, ol {
@@ -490,6 +492,95 @@
         height: 16px;
     }
 </style>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+<meting-js
+	server="netease"
+	type="playlist"
+	id="14068521655">
+   	fixed: true
+
+</meting-js>
+
+
+<script>
+    ...
+    
+
+    window.onbeforeunload = () => {
+        
+        const playInfo = {
+            index: ap.list.index,
+            currentTime: ap.audio.currentTime,
+            paused: ap.paused
+        };
+        localStorage.setItem("playInfo", JSON.stringify(playInfo));
+    };
+
+    
+
+    window.onload = () => {
+        
+        const playInfo = JSON.parse(localStorage.getItem("playInfo"));
+        if (!playInfo) {
+            return;
+        }
+        
+        ap.list.switch(playInfo.index);
+        
+        setTimeout(() => {
+            
+            ap.seek(playInfo.currentTime);
+            
+            if (!playInfo.paused) {
+                ap.play()
+            }
+        }, 500);
+    };
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script>
+<script>
+	var pjax = new Pjax({
+	  selectors: [
+	    ".main-container"
+	  ]
+	})
+</script>
+
+<script>
+    ...
+    pjax._handleResponse = pjax.handleResponse;
+    pjax.handleResponse = function(responseText, request, href, options) {
+        if (request.responseText.match("<html")) {
+            if (responseText) {
+                
+                let newDom = new DOMParser().parseFromString(responseText, 'text/html');
+                
+                let bodyClass = newDom.body.className;
+                document.body.setAttribute("class", bodyClass)
+                
+                pjax._handleResponse(responseText, request, href, options);
+            }
+        } else {
+            
+        }
+    }
+</script>
+<script>
+    ...
+    document.addEventListener('pjax:complete', () => {
+        
+        window.Stack.init();
+    })
+</script>
+
+
 
 
     </body>

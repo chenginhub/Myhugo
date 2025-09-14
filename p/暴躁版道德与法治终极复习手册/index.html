@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='http://localhost:1313/p/%E6%9A%B4%E8%BA%81%E7%89%88%E9%81%93%E5%BE%B7%E4%B8%8E%E6%B3%95%E6%B2%BB%E7%BB%88%E6%9E%81%E5%A4%8D%E4%B9%A0%E6%89%8B%E5%86%8C/'>
 
-<link rel="stylesheet" href="/scss/style.min.c33223b38327d4d1c12bff7d536a24556f9c252cb29d00005960c1a008af6db5.css"><meta property='og:title' content="暴躁版《道德与法治》终极复习手册">
+<link rel="stylesheet" href="/scss/style.min.c212a5d9fa9ea40c4eab80055c536a9a3e50a1a639dded05218e10db8b1bc18c.css"><meta property='og:title' content="暴躁版《道德与法治》终极复习手册">
 <meta property='og:description' content="注意此类文档的格式是旧版教科书 暴躁版《道德与法治》终极复习手册 （你要的脏话来了，但知识点一个不少）\n一、宪法与法律（给老子记住！） 1. 宪法 你他妈必须知道：宪法就是法律界的老大，其他法律都是小弟！ 案例：宪法说&quot;要读书&quot;→《义务教育法》逼你去学校 2. 法律作用 作用 人话翻译 现实例子 规范行为 告诉你什么能做什么会挨揍 闯红灯罚款200 保障权利 谁欺负你法律弄死他 校园暴力可以报警 二、国家机构（重点！） 1. 人大 权力：立法权（想定啥法定啥法） 选举：国家主席是它选的，不是你选的！ 2. 政府 干啥吃的：天天让你做核酸的就是这傻子 三、社会生活（关你屁事？） 1. 公共设施 使用原则：你可以可以白嫖，但不能搞破坏！ 真实案例：去年有人偷共享单车坐垫，现在还在局子里 四、历史与文化（背就完事） 1. 四大发明 发明 牛逼之处 现在有个卵用 指南针 让郑和没迷路 现在都用GPS了 火药 让放炮仗更响 过年炸伤手的还是很多 造纸术 更廉价的纸 太tm有用了 印刷术 更好印刷 让你有许多试卷的起源 五、国际视角（装逼用） 1. 联合国 中国地位：五大流氓之一（划掉）常任理事国 实际权力：看美国脸色（大实话） 2. 一带一路 本质：中国版&quot;要想富先修路&quot; 成果：帮非洲兄弟盖了很多厕所 复习建议（听不听随你） 重点背：标🔥的部分 随便看：其他废话 千万别：考试时写&quot;五大流氓&quot;，会得零分！ 终极警告：现在不背，考试流泪！ 更狠警告：考不及格你妈会打断你的腿！\n">
 <meta property='og:url' content='http://localhost:1313/p/%E6%9A%B4%E8%BA%81%E7%89%88%E9%81%93%E5%BE%B7%E4%B8%8E%E6%B3%95%E6%B2%BB%E7%BB%88%E6%9E%81%E5%A4%8D%E4%B9%A0%E6%89%8B%E5%86%8C/'>
 <meta property='og:site_name' content='夜影琴'>
@@ -561,6 +561,8 @@
 </script>
 <script src="/background/sakura.js"></script>
 
+
+
   
 <style>
     #TableOfContents > ul, ol {
@@ -650,6 +652,95 @@
         height: 16px;
     }
 </style>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+<meting-js
+	server="netease"
+	type="playlist"
+	id="14068521655">
+   	fixed: true
+
+</meting-js>
+
+
+<script>
+    ...
+    
+
+    window.onbeforeunload = () => {
+        
+        const playInfo = {
+            index: ap.list.index,
+            currentTime: ap.audio.currentTime,
+            paused: ap.paused
+        };
+        localStorage.setItem("playInfo", JSON.stringify(playInfo));
+    };
+
+    
+
+    window.onload = () => {
+        
+        const playInfo = JSON.parse(localStorage.getItem("playInfo"));
+        if (!playInfo) {
+            return;
+        }
+        
+        ap.list.switch(playInfo.index);
+        
+        setTimeout(() => {
+            
+            ap.seek(playInfo.currentTime);
+            
+            if (!playInfo.paused) {
+                ap.play()
+            }
+        }, 500);
+    };
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script>
+<script>
+	var pjax = new Pjax({
+	  selectors: [
+	    ".main-container"
+	  ]
+	})
+</script>
+
+<script>
+    ...
+    pjax._handleResponse = pjax.handleResponse;
+    pjax.handleResponse = function(responseText, request, href, options) {
+        if (request.responseText.match("<html")) {
+            if (responseText) {
+                
+                let newDom = new DOMParser().parseFromString(responseText, 'text/html');
+                
+                let bodyClass = newDom.body.className;
+                document.body.setAttribute("class", bodyClass)
+                
+                pjax._handleResponse(responseText, request, href, options);
+            }
+        } else {
+            
+        }
+    }
+</script>
+<script>
+    ...
+    document.addEventListener('pjax:complete', () => {
+        
+        window.Stack.init();
+    })
+</script>
+
+
 
 
     </body>
