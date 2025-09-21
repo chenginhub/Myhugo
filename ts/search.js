@@ -201,8 +201,9 @@
       return /* @__PURE__ */ createElement("article", null, /* @__PURE__ */ createElement("a", { href: item.permalink }, /* @__PURE__ */ createElement("div", { class: "article-details" }, /* @__PURE__ */ createElement("h2", { class: "article-title", dangerouslySetInnerHTML: { __html: item.title } }), /* @__PURE__ */ createElement("section", { class: "article-preview", dangerouslySetInnerHTML: { __html: item.preview } })), item.image && /* @__PURE__ */ createElement("div", { class: "article-image" }, /* @__PURE__ */ createElement("img", { src: item.image, loading: "lazy" }))));
     }
   };
-  window.addEventListener("load", () => {
-    setTimeout(function() {
+  function searchInit() {
+    let search = document.querySelector(".search-result");
+    if (search) {
       const searchForm = document.querySelector(".search-form"), searchInput = searchForm.querySelector("input"), searchResultList = document.querySelector(".search-result--list"), searchResultTitle = document.querySelector(".search-result--title");
       new Search({
         form: searchForm,
@@ -211,7 +212,7 @@
         resultTitle: searchResultTitle,
         resultTitleTemplate: window.searchResultTitleTemplate
       });
-    }, 0);
-  });
+    }
+  }
   var stdin_default = Search;
 })();

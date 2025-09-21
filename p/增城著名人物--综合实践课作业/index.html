@@ -441,7 +441,7 @@
                 src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
                 
                 >
-            </script><script type="text/javascript" src="/ts/main.bc2da251f766e1b1fcf2f224427930c9141cc90885550815769f65d09ddd0142.js" defer></script>
+            </script><script type="text/javascript" src="/ts/main.82239e57fd27173f488d5313f4a46a7329835fb46260f2b7fb6a1958f40667a0.js" defer></script>
 <script>
     (function () {
         const customFont = document.createElement('link');
@@ -454,6 +454,14 @@
     }());
 </script>
 <script src="/background/sakura.js"></script>
+
+<script>
+    
+    document.addEventListener('pjax:complete', () => {
+        
+        window.Stack.init();
+    })
+</script>
 
 
 
@@ -608,7 +616,7 @@
 </script>
 
 <script>
-    ...
+    
     pjax._handleResponse = pjax.handleResponse;
     pjax.handleResponse = function(responseText, request, href, options) {
         if (request.responseText.match("<html")) {
@@ -626,13 +634,10 @@
         }
     }
 </script>
-<script>
-    ...
-    document.addEventListener('pjax:complete', () => {
-        
-        window.Stack.init();
-    })
-</script>
+
+
+
+
 
 
 
