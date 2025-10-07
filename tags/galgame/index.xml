@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Galgame on 夜影琴</title>
+        <link>http://localhost:1313/tags/galgame/</link>
+        <description>Recent content in Galgame on 夜影琴</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>人</copyright>
+        <lastBuildDate>Tue, 23 Sep 2025 00:00:00 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/galgame/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Galgame</title>
+        <link>http://localhost:1313/p/galgame/</link>
+        <pubDate>Tue, 23 Sep 2025 00:00:00 +0800</pubDate>
+        
+        <guid>http://localhost:1313/p/galgame/</guid>
+        <description>&lt;p&gt;今天，我很兴奋地发布我的第一款游戏！点击下方链接下载。&lt;/p&gt;
+&lt;h2 id=&#34;下载游戏&#34;&gt;下载游戏
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;http://localhost:1313/games/123-1.0-pc.zip&#34; &gt;Windows 版本 (.zip)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>
